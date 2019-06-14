@@ -12,7 +12,7 @@ def handle_file(txt):
         if t.strip().find('`') == 0:
             tmp += '|' + t.strip()[1:t.strip().find('`', 1)] + '|' + check_type(t.strip()) + '|' + check_comment(
                 t.strip()) + '|' + '\r\n'
-    print(tmp)
+    print(tmp, end='')
 
 
 def check_type(string):
