@@ -37,7 +37,7 @@ class Md:
             if t.strip().find('`') == 0:
                 tmp += '|' + t.strip()[1:t.strip().find('`', 1)] + '|' + self.check_type(
                     t.strip()) + '|' + self.check_comment(
-                    t.strip()) + '|' + '\r\n'
+                    t.strip()) + '|' + '\n'
 
         print(tmp, end='')
         self.aa.insert(INSERT, tmp)
