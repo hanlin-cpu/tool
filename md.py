@@ -1,4 +1,5 @@
 from tkinter import *
+import os
 
 
 class Md:
@@ -18,14 +19,16 @@ class Md:
         print('hello tkinter')
 
     def read_file(self):
+        if not os.path.exists('./libraries/files'):  # 如果路径不存在
+            os.makedirs('./libraries/files')
 
-        f = open('table_ddl.txt', 'w', encoding="utf-8")
+        f = open('./libraries/files/table_ddl.txt', 'w', encoding="utf-8")
         # 将文本写入到文件
         f.write(self.quitButton.get(0.0, "end"))
         # 关闭文件
         f.close()
 
-        with open('table_ddl.txt', encoding="utf-8") as f:
+        with open('./libraries/files/table_ddl.txt', encoding="utf-8") as f:
             txt = f.readlines()
             self.handle_file(txt)
 
@@ -52,7 +55,7 @@ class Md:
 
     def check_comment(self, string):
         if len(string.split("COMMENT '")) == 2:
-            return string.split("COMMENT '")[1]
+            return string.split("COMMENT '")[1].rstrip("',")
         else:
             return 'x'
 

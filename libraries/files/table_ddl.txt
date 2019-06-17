@@ -1,0 +1,22 @@
+
+CREATE TABLE `alarm` (
+  `id` int(11) unsigned NOT NULL AUTO_INCREMENT COMMENT 'ID',
+  `b_id` int(11) DEFAULT NULL COMMENT '工地id',
+  `p_id` int(11) DEFAULT NULL COMMENT '测试点ID',
+  `create_time` timestamp NULL DEFAULT CURRENT_TIMESTAMP COMMENT '创建时间',
+  `value` float DEFAULT NULL COMMENT '报警值',
+  `primary_pollutant` varchar(20) DEFAULT NULL,
+  `primary_value` float(10,2) DEFAULT NULL,
+  `status` tinyint(1) DEFAULT NULL COMMENT '1/转工地 3/转筑建 4/转指挥办 5/其他部门处理 6/已整改 7/已点检 8/已处理',
+  `token` tinyint(1) NOT NULL DEFAULT '0' COMMENT '报警是否解除 1/解除 0/未解除',
+  `deleted` tinyint(1) NOT NULL DEFAULT '0' COMMENT '是否删除',
+  `solve_time` timestamp NULL DEFAULT NULL COMMENT '解决的时间',
+  `solve_value` float DEFAULT NULL COMMENT '解决后恢复值',
+  `area_id` int(11) DEFAULT NULL COMMENT '区域ID',
+  `instance_id` int(11) DEFAULT NULL,
+  `department_id` int(11) DEFAULT NULL,
+  `instance_name` varchar(200) DEFAULT NULL,
+  `alarm_level` tinyint(1) DEFAULT '1',
+  `flow_main_id` int(11) NOT NULL DEFAULT '0',
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=96166 DEFAULT CHARSET=utf8;

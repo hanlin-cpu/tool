@@ -4,4 +4,6 @@
 *~
 __pycache__
 *.sqlite3
-/table_ddl.txt
+/*.spec
+/build
+/dist
